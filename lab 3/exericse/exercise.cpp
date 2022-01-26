@@ -8,19 +8,26 @@ using namespace std;
 int* resize(int* arrayPtr, int &capacity)
 {
 	// TODO increase the capacity by two times
-	// int newCapacity =
-    // cout<<"Resizing from "<<capacity<<" to "<<newCapacity<<endl;
+	int newCapacity = capacity * 2;
+    cout<<"Resizing from "<<capacity<<" to "<<newCapacity<<endl;
 
 	// TODO dynamically allocate an array of size newCapacity
-	// int *newArray =
+	int *newArray = new int[newCapacity];
+
 
 	// TODO copy all data from oldArray to newArray
-
+	for(int i = 0; i < newCapacity; i++)
+	{
+		newArray[i] = arrayPtr[i];
+	}
 	// TODO free the memory associated with oldArray
-
-	//capacity = newCapacity;
+	delete [] arrayPtr;
+	arrayPtr = nullptr;
+	capacity = newCapacity;
 
 	// TODO return the newArray
+
+	return newArray;
 
 }
 
@@ -38,7 +45,7 @@ int main(int argc, char* argv[])
 	int *arrayPtr;
 
 	// TODO Dynamically allocate space here for the array
-	//arrayPtr =
+	arrayPtr = new int[capacity];
 	int numOfElement = 0;
 	string temp;
 
